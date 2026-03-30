@@ -51,6 +51,7 @@ public class BrowserUnit {
     private static final String SEARCH_ENGINE_Metager = "https://metager.org/meta/meta.ger3?eingabe=";
     private static final String SEARCH_ENGINE_STARTPAGE_DE = "https://startpage.com/do/search?lui=deu&language=deutsch&query=";
     private static final String SEARCH_ENGINE_SEARX = "https://searx.be/?q=";
+    private static final String SEARCH_ENGINE_BRAVE = "https://search.brave.com/search?q=";
     private static final String URL_ABOUT_BLANK = "about:blank";
     private static final String URL_SCHEME_FILE = "file://";
     private static final String URL_SCHEME_HTTPS = "https://";
@@ -137,8 +138,10 @@ public class BrowserUnit {
                     return SEARCH_ENGINE_ECOSIA + query;
                 case 9:
                     return SEARCH_ENGINE_Metager + query;
+                case 10:
+                    return SEARCH_ENGINE_BRAVE + query;
                 default:
-                    return SEARCH_ENGINE_STARTPAGE + query;
+                    return SEARCH_ENGINE_BRAVE + query;
             }
         }
     }
