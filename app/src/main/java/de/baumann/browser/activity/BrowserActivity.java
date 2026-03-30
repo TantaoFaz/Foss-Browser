@@ -323,7 +323,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
         //if still no open Tab open default page
         if (BrowserContainer.size() < 1) {
             if (sp.getBoolean("start_tabStart", false)) showOverview();
-            addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")), true, false, "");
+            addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")), true, false, "");
         }
     }
 
@@ -454,7 +454,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
         if (BrowserContainer.size() <= 1) {
             if (!sp.getBoolean("sp_reopenLastTab", false)) doubleTapsQuit();
             else {
-                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")));
+                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")));
                 hideOverview(); }}
         else {
             closeTabConfirmation(() -> {
@@ -893,7 +893,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                 omniBox_text.setText(url);
             else omniBox_text.setText(ninjaWebView.getTitle());
 
-            if (url.startsWith("https://") || url.contains("about:blank") || listTrusted.isWhite(url))
+            if (url.startsWith("https://") || url.contains("file:///android_asset/newtab.html") || listTrusted.isWhite(url))
                 omniBox_tab.setOnClickListener(v -> showTabView());
             else if (url.isEmpty()) {
                 omniBox_tab.setOnClickListener(v -> showTabView());
@@ -1097,11 +1097,11 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
         menu_grid_tab.setOnItemClickListener((parent, view14, position, id) -> {
             dialog_overflow.cancel();
             if (position == 0)
-                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")));
+                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")));
             else if (position == 1)
-                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")), true, false, "");
+                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")), true, false, "");
             else if (position == 2)
-                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")), true, true, "");
+                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")), true, true, "");
             else if (position == 3) ninjaWebView.reload();
             else if (position == 4) removeAlbum(currentAlbumController);
             else if (position == 5) doubleTapsQuit(); });
@@ -2127,7 +2127,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                 showOverview();
                 break;
             case "09":
-                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")), true, false, "");
+                addAlbum(getString(R.string.app_name), Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")), true, false, "");
                 break;
             case "10":
                 removeAlbum(currentAlbumController);
@@ -2151,7 +2151,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                 ninjaWebView.reload();
                 break;
             case "17":
-                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "about:blank")));
+                ninjaWebView.loadUrl(Objects.requireNonNull(sp.getString("favoriteURL", "file:///android_asset/newtab.html")));
                 break;
             case "18":
                 bottom_navigation.setSelectedItemId(R.id.page_2);
@@ -2293,7 +2293,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             else ninjaWebView.setOnTouchListener(null);
         });
 
-        if (url.isEmpty()) ninjaWebView.loadUrl("about:blank");
+        if (url.isEmpty()) ninjaWebView.loadUrl("file:///android_asset/newtab.html");
         else ninjaWebView.loadUrl(url);
 
         if (currentAlbumController != null) {

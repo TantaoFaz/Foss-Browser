@@ -1,0 +1,163 @@
+/* ── HERO ── */
+.hero {
+  padding: 32px 20px 24px;
+}
+
+.greeting {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.hero-title em { color: var(--accent); font-style: normal; }
+
+/* ── SEARCH ── */
+.search-wrap {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-input {
+  width: 100%;
+  height: 52px;
+  background: var(--s1);
+  border: 1.5px solid var(--border2);
+  border-radius: 14px;
+  padding: 0 56px 0 18px;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accentlo);
+}
+
+.search-btn {
+  position: absolute;
+  right: 6px; top: 6px;
+  width: 40px; height: 40px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.12s;
+}
+.search-btn:active { opacity: 0.8; transform: scale(0.92); }
+.search-btn svg {
+  width: 15px; height: 15px;
+  stroke: #000; fill: none;
+  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ── TAGS ── */
+.tags {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tags::-webkit-scrollbar { display: none; }
+
+.tag {
+  flex-shrink: 0;
+  height: 30px;
+  padding: 0 13px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.tag.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accentlo);
+}
+
+/* ── SECTION ── */
+.section {
+  padding: 20px 20px 0;
+}
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* ── SHORTCUTS ── */
+.shortcuts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.shortcut-icon {
+  width: 52px; height: 52px;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.12s, border-color 0.15s;
+}
+.shortcut:active .shortcut-icon {
+  transform: scale(0.9);
+  border-color: var(--border2);
+}
+.shortcut-icon svg {
+  width: 20px; height: 20px;
+  fill: none;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.shortcut-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ── EMPTY SCREEN ── */
+.empty-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+}
+.empty-screen span {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
